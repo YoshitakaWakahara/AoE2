@@ -1,0 +1,22 @@
+{% extends "team/layout.html" %}
+
+{% block body %}
+<form action="{% url 'team:which_team_won'%}" method="post">
+  {% csrf_token %}
+  <li>Team1 Total Rate: {{ t1_total_rate }} Team1 Win Rate: {{ t1_win_rate }}
+    <ul>player1: {{ t1_player1 }}</ul>
+    <ul>player2: {{ t1_player2 }}</ul>
+    <ul>player3: {{ t1_player3 }}</ul>
+    <ul>player4: {{ t1_player4 }}</ul>
+  </li>
+  <li>Team2 Total Rate: {{ t2_total_rate }}
+    <ul>player1: {{ t2_player1 }}</ul>
+    <ul>player2: {{ t2_player2 }}</ul>
+    <ul>player3: {{ t2_player3 }}</ul>
+    <ul>player4: {{ t2_player4 }}</ul>
+  </li>
+  <input type="radio" name="won_team" value=1>team1_won
+  <input type="radio" name="won_team" value=2>team2_won
+  <button type="submit" name="confirm" value="confirm">confirm</button>
+</form>
+{% endblock %}

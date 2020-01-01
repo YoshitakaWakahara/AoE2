@@ -1,0 +1,73 @@
+{% extends "team/layout.html" %}
+
+{% block body %}
+<!--
+  名前を選択
+  チーム分けをクリック
+    formでselect
+    POST
+    新しいview呼び出し
+  チーム分けの結果が返される
+-->
+<h2>チーム分け</h2>
+<form action="{% url 'team:make_team' %}" method="post">
+  {% csrf_token %}
+    <div>
+        <select name="player1">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player1">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player2">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player2">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player3">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player3">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player4">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player4">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player5">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player5">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player6">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player6">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player7">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player7">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="player8">
+          {% for player in players%}
+          <option value="{{ player.id }}" id="player8">{{ player.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <input type="submit" value="Make">
+</form>
+{% endblock %}
